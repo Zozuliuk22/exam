@@ -13,7 +13,7 @@ while true; do #ввод чисел пока происходит ошибка �
 	if [[ $second_number = 0 ]]; then  #проверка деления на ноль
   	  echo "Error! Divide by zero!"
 	else 
-          rezult=$(echo "scale=$round_number; $first_number/$second_number" | bc)
+          rezult=$(echo "scale=$round_number; $first_number/$second_number" | bc | sed -e 's/^\./0./' -e 's/^-\./-0./')
   	  break
 	fi
 done
